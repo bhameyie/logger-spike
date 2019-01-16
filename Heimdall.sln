@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Ingress.Rest", "Heimdall.Ingress.Rest\Heimdall.Ingress.Rest.csproj", "{6E73F9D7-D743-4454-BA13-BB96DD7F5BCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Ingress", "Heimdall.Ingress.Rest\Heimdall.Ingress.csproj", "{6E73F9D7-D743-4454-BA13-BB96DD7F5BCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Overseer", "Heimdall.Ingress.Reactive\Heimdall.Overseer.csproj", "{4BB75ABA-17CE-4638-A232-8A24F693512E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Contracts", "Heimdall.Contracts\Heimdall.Contracts.csproj", "{3D555C88-41DC-4F04-BABA-27C2DCAC105B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Ingress.Tests", "Heimdall.Ingress.Tests\Heimdall.Ingress.Tests.csproj", "{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{6E73F9D7-D743-4454-BA13-BB96DD7F5BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E73F9D7-D743-4454-BA13-BB96DD7F5BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E73F9D7-D743-4454-BA13-BB96DD7F5BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB75ABA-17CE-4638-A232-8A24F693512E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB75ABA-17CE-4638-A232-8A24F693512E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB75ABA-17CE-4638-A232-8A24F693512E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB75ABA-17CE-4638-A232-8A24F693512E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D555C88-41DC-4F04-BABA-27C2DCAC105B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D555C88-41DC-4F04-BABA-27C2DCAC105B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D555C88-41DC-4F04-BABA-27C2DCAC105B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D555C88-41DC-4F04-BABA-27C2DCAC105B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
