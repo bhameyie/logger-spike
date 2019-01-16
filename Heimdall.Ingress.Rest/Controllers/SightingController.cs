@@ -23,8 +23,15 @@ namespace Heimdall.Ingress.Controllers
             _logger = LogManager.GetLogger(typeof(SightingController));
         }
 
+        [HttpGet]
+        public IActionResult Health()
+        {
+            return Ok("wlll");
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Report([FromBody] SightingRequest request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Report([FromBody] SightingRequest request,
+            CancellationToken cancellationToken)
         {
             try
             {

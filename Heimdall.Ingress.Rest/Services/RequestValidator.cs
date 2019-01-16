@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Heimdall.Ingress.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Heimdall.Ingress.Models;
+using Heimdall.Ingress.Services;
 
 namespace Heimdall.Ingress
 {
-    public interface IRequestValidator
-    {
-        ValidationResult Validate(SightingRequest request);
-    }
-
     public class RequestValidator : IRequestValidator
     {
         public ValidationResult Validate(SightingRequest request)

@@ -8,15 +8,15 @@ namespace Heimdall.Ingress.Services
 {
     public class SightingService : ISightingService
     {
-        private readonly ISendEndpoint _sendEndpoint;
+        private readonly ISendEndpointProvider _sendEndpointProvider;
         private readonly IPublishEndpoint _publishEndpoint;
         private readonly IRequestTranslator _translator;
 
-        public SightingService(ISendEndpoint sendEndpoint,
+        public SightingService(ISendEndpointProvider sendEndpointProvider,
             IPublishEndpoint publishEndpoint,
             IRequestTranslator translator)
         {
-            _sendEndpoint = sendEndpoint;
+            _sendEndpointProvider = sendEndpointProvider;
             _publishEndpoint = publishEndpoint;
             _translator = translator;
         }
@@ -24,7 +24,8 @@ namespace Heimdall.Ingress.Services
         public async Task ReportSighting(SightingRequest validatedRequest, CancellationToken cancellationToken)
         {
             var correlationId = Guid.NewGuid();
-            await _sendEndpoint.Send(_translator.TranslateToInvestigationCommand(validatedRequest, correlationId),
+            var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri(""));
+            await sendEndpoint.Send(_translator.TranslateToInvestigationCommand(validatedRequest, correlationId),
                 cancellationToken);
 
             await _publishEndpoint.Publish(
