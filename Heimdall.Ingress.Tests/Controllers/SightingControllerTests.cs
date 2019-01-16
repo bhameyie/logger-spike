@@ -53,6 +53,5 @@ namespace Heimdall.Ingress.Tests.Controllers
 
             _service.Verify(e => e.ReportSighting(req, token));
         }
-
     }
 }

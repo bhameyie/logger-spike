@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using AutoFixture;
 using FluentAssertions;
+using Heimdall.Contracts.Commands;
 using Heimdall.Ingress.Models;
 using NUnit;
 using NUnit.Framework;

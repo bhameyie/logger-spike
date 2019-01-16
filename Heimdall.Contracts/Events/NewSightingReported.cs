@@ -4,11 +4,12 @@ using System.Text;
 
 namespace Heimdall.Contracts.Events
 {
-    /// <summary>
-    /// Indicates a 
-    /// </summary>
-    public interface NewSightingReported:IUserCorrelated
+    /// <inheritdoc />
+    public class NewSightingReported : INewSightingReported
     {
-        string Summary { get; }
+        public Guid CorrelationId { get; set; }
+        public DateTime Timestamp { get; set; }
+        public string ReportedCorellationId { get; set; }
+        public string Summary { get; set; }
     }
 }
