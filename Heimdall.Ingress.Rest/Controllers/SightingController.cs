@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Heimdall.Ingress.Models;
+using Heimdall.Ingress.Services;
+using log4net;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Heimdall.Ingress.Controllers
@@ -7,36 +12,36 @@ namespace Heimdall.Ingress.Controllers
     [ApiController]
     public class SightingController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        private readonly IRequestValidator _requestValidator;
+        private readonly ISightingService _service;
+        private readonly ILog _logger;
+
+        public SightingController(IRequestValidator requestValidator, ISightingService service)
         {
-            return new string[] { "value1", "value2" };
+            _requestValidator = requestValidator;
+            _service = service;
+            _logger = LogManager.GetLogger(typeof(SightingController));
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Report([FromBody] SightingRequest request, CancellationToken cancellationToken)
         {
-        }
+            try
+            {
+                var validate = _requestValidator.Validate(request);
+                if (validate.Succeeded)
+                {
+                    await _service.ReportSighting(request, cancellationToken);
+                    return Ok();
+                }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+                return BadRequest(new { rejectionReason = validate.Reason });
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Error occured while reporting a sighting. ${ex.Message}", ex);
+                throw;
+            }
         }
     }
 }
