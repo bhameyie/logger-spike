@@ -5,21 +5,23 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Ingress", "Heimdall.Ingress.Rest\Heimdall.Ingress.csproj", "{6E73F9D7-D743-4454-BA13-BB96DD7F5BCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Overseer", "Heimdall.Overseer\Heimdall.Overseer.csproj", "{4BB75ABA-17CE-4638-A232-8A24F693512E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Overseer", "Heimdall.Overseer\Heimdall.Overseer.csproj", "{4BB75ABA-17CE-4638-A232-8A24F693512E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Contracts", "Heimdall.Contracts\Heimdall.Contracts.csproj", "{3D555C88-41DC-4F04-BABA-27C2DCAC105B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Contracts", "Heimdall.Contracts\Heimdall.Contracts.csproj", "{3D555C88-41DC-4F04-BABA-27C2DCAC105B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Ingress.Tests", "Heimdall.Ingress.Tests\Heimdall.Ingress.Tests.csproj", "{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Ingress.Tests", "Heimdall.Ingress.Tests\Heimdall.Ingress.Tests.csproj", "{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdal.Transport", "Heimdal.Transport\Heimdal.Transport.csproj", "{1D7AFCBF-2874-45E7-AEA3-498C319B75CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdal.Transport", "Heimdal.Transport\Heimdal.Transport.csproj", "{1D7AFCBF-2874-45E7-AEA3-498C319B75CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Transport.RabbitMQ", "Heimdall.Transport.RabbitMQ\Heimdall.Transport.RabbitMQ.csproj", "{2FE9402D-BD73-4870-A659-5837D1015659}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Transport.RabbitMQ", "Heimdall.Transport.RabbitMQ\Heimdall.Transport.RabbitMQ.csproj", "{2FE9402D-BD73-4870-A659-5837D1015659}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{FD711266-606F-40E4-8E1C-5F0B2AB47F73}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transport", "Transport", "{04BE8B95-7F45-4680-8077-573C96D26D62}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D2159FBF-8ED8-4D56-9DD4-01586DAF8302}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Transport.Tests", "Heimdall.Transport.Tests\Heimdall.Transport.Tests.csproj", "{8067F813-6469-4146-AC73-95881F27536B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{2FE9402D-BD73-4870-A659-5837D1015659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FE9402D-BD73-4870-A659-5837D1015659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FE9402D-BD73-4870-A659-5837D1015659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8067F813-6469-4146-AC73-95881F27536B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8067F813-6469-4146-AC73-95881F27536B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8067F813-6469-4146-AC73-95881F27536B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8067F813-6469-4146-AC73-95881F27536B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E} = {D2159FBF-8ED8-4D56-9DD4-01586DAF8302}
 		{1D7AFCBF-2874-45E7-AEA3-498C319B75CD} = {04BE8B95-7F45-4680-8077-573C96D26D62}
 		{2FE9402D-BD73-4870-A659-5837D1015659} = {04BE8B95-7F45-4680-8077-573C96D26D62}
+		{8067F813-6469-4146-AC73-95881F27536B} = {D2159FBF-8ED8-4D56-9DD4-01586DAF8302}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE8EAF05-F028-48F5-A846-3A4D23C1DBD5}

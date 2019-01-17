@@ -5,8 +5,16 @@ using MassTransit;
 
 namespace Heimdall.Transport.RabbitMQ
 {
-    public class RabbitMqConfigurationAgent:IConfigurationAgent
+    public class RabbitMqConfigurationAgent : IConfigurationAgent
     {
+        private IRouteRegistry _routeRegistry;
+
+        public RabbitMqConfigurationAgent WithRegistry(IRouteRegistry routeRegistry)
+        {
+            _routeRegistry = routeRegistry;
+            return this;
+        }
+
         public void Configure(TransportConfigurator configurator)
         {
             configurator.Container.Register(c =>
@@ -22,14 +30,15 @@ namespace Heimdall.Transport.RabbitMQ
                 .As<IBusControl>()
                 .As<IPublishEndpoint>()
                 .As<ISendEndpointProvider>()
+                .As<IBus>()
                 .SingleInstance();
 
-            configurator.Container.RegisterModule<RabbitModule>();
+            configurator.Container.RegisterModule(new RabbitModule(_routeRegistry));
         }
 
         public void Release(IConfiguredTransport transport)
         {
-            
+
         }
     }
 }

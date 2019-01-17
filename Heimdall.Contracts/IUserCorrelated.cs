@@ -1,4 +1,6 @@
-﻿namespace Heimdall.Contracts
+﻿using Heimdal.Transport.Interfaces;
+
+namespace Heimdall.Contracts
 {
     /// <summary>
     /// Indicates what the user believes the issue is linked to

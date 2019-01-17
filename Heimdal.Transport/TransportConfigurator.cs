@@ -49,8 +49,6 @@ namespace Heimdal.Transport
             }
 
             _agents.ForEach(agent => agent.Configure(this));
-
-
             return new ConfiguredTransport(Container.Build(), _agents);
         }
 

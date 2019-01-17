@@ -1,4 +1,4 @@
-﻿namespace Heimdall.Ingress
+﻿namespace Heimdall.Ingress.Models
 {
     public class ValidationResult
     {

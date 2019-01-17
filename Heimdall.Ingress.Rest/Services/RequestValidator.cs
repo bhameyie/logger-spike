@@ -1,7 +1,6 @@
 ﻿using Heimdall.Ingress.Models;
-using Heimdall.Ingress.Services;
 
-namespace Heimdall.Ingress
+namespace Heimdall.Ingress.Services
 {
     public class RequestValidator : IRequestValidator
     {

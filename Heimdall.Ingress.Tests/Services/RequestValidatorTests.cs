@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using AutoFixture;
 using FluentAssertions;
-using Heimdall.Contracts.Commands;
 using Heimdall.Ingress.Models;
-using NUnit;
+using Heimdall.Ingress.Services;
 using NUnit.Framework;
 
-namespace Heimdall.Ingress.Tests
+namespace Heimdall.Ingress.Tests.Services
 {
     public class RequestValidatorTests
     {

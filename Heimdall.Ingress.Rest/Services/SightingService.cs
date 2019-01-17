@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Heimdal.Transport.Interfaces;
 using Heimdall.Ingress.Models;
 using MassTransit;
 
@@ -8,27 +9,22 @@ namespace Heimdall.Ingress.Services
 {
     public class SightingService : ISightingService
     {
-        private readonly ISendEndpointProvider _sendEndpointProvider;
-        private readonly IPublishEndpoint _publishEndpoint;
         private readonly IRequestTranslator _translator;
+        private readonly IHeimdallGateway _gateway;
 
-        public SightingService(ISendEndpointProvider sendEndpointProvider,
-            IPublishEndpoint publishEndpoint,
-            IRequestTranslator translator)
+        public SightingService(IRequestTranslator translator,IHeimdallGateway gateway)
         {
-            _sendEndpointProvider = sendEndpointProvider;
-            _publishEndpoint = publishEndpoint;
             _translator = translator;
+            _gateway = gateway;
         }
 
         public async Task ReportSighting(SightingRequest validatedRequest, CancellationToken cancellationToken)
         {
             var correlationId = Guid.NewGuid();
-            var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri(""));
-            await sendEndpoint.Send(_translator.TranslateToInvestigationCommand(validatedRequest, correlationId),
+            await _gateway.Send(_translator.TranslateToInvestigationCommand(validatedRequest, correlationId),
                 cancellationToken);
 
-            await _publishEndpoint.Publish(
+            await _gateway.Publish(
                 _translator.TranslateToNewSightingEvent(validatedRequest, correlationId),
                 cancellationToken);
         }
