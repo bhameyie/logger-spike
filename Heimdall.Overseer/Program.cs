@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Heimdall.Ingress.Reactive
+namespace Heimdall.Overseer
 {
     class Program
     {

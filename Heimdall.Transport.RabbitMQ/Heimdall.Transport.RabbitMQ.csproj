@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="5.2.1" />
+    <PackageReference Include="MassTransit.Autofac" Version="5.2.1" />
+    <PackageReference Include="MassTransit.Log4Net" Version="5.2.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="5.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Heimdal.Transport\Heimdal.Transport.csproj" />
+  </ItemGroup>
+
+
+
+
+</Project>

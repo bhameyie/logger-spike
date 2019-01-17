@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Heimdal.Transport;
 using log4net;
 using MassTransit;
+using Microsoft.Extensions.Hosting;
 
-namespace Heimdall.Ingress
+namespace Heimdall.Transport.RabbitMQ
 {
-    public class MqHostedService : Microsoft.Extensions.Hosting.IHostedService
+    public class MqHostedService : IHostedService
     {
         private readonly IBusControl _busControl;
         private readonly ILog _logger;

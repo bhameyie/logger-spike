@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace Heimdall.Ingress
 {
@@ -12,6 +13,9 @@ namespace Heimdall.Ingress
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .ConfigureAppConfiguration(config =>
+                {
+                    config.AddEnvironmentVariables();
+                }).UseStartup<Startup>();
     }
 }

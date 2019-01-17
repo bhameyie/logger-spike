@@ -1,7 +1,8 @@
 ﻿using System;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using MassTransit;
+using Heimdal.Transport;
+using Heimdall.Transport.RabbitMQ;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,26 +29,14 @@ namespace Heimdall.Ingress
             services.AddScoped<IHostedService, MqHostedService>();
 
             var builder = new ContainerBuilder();
-            builder.Register(c =>
-                {
-                    return Bus.Factory.CreateUsingRabbitMq(sbc =>
-                        sbc.Host("localhost", "", h =>
-                        {
-                            h.Username("guest");
-                            h.Password("guest");
-                        })
-                    );
-                })
-                .As<IBusControl>()
-                .As<IPublishEndpoint>()
-               .As<ISendEndpointProvider>()
-                .SingleInstance();
-
             builder.Populate(services);
             builder.RegisterModule<AutofacModule>();
 
-            var container = builder.Build();
-            return new AutofacServiceProvider(container);
+            var configuredTransport = new TransportConfigurator(builder, Configuration)
+                .WithAgent<RabbitMqConfigurationAgent>()
+                .Configure();
+
+            return new AutofacServiceProvider(configuredTransport.BuiltContainer);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -1,7 +1,7 @@
 ﻿using System;
 using log4net;
 
-namespace Heimdall.Ingress
+namespace Heimdal.Transport
 {
     public class StateLogScope : IDisposable
     {
