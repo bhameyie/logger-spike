@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Runtime.Loader;
+using Heimdall.Transport.Interfaces;
+using Heimdall.Transport.RabbitMQ;
 using log4net.Core;
 using Microsoft.Extensions.CommandLineUtils;
 
@@ -20,7 +22,8 @@ namespace Heimdall.Overseer
 
             app.OnExecute(() =>
             {
-                using (var initiator=new ServiceInitiator())
+                IConfigurationAgent[] agents = {new RabbitMqConfigurationAgent()};
+                using (var initiator = new ServiceInitiator(agents))
                 {
                     initiator.Init();
                     Console.WriteLine("Overseer Started");

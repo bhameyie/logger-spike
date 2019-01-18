@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Autofac;
 using Heimdall.Transport;
 using Heimdall.Transport.Interfaces;
-using Heimdall.Transport.RabbitMQ;
 using log4net;
+using System.Linq;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 
@@ -22,7 +23,7 @@ namespace Heimdall.Overseer
 
         public TransportConfigurator Configurator { get; }
 
-        public ServiceInitiator()
+        public ServiceInitiator(IEnumerable<IConfigurationAgent> agents)
         {
             _logger = LogManager.GetLogger(typeof(ServiceInitiator));
             var config = new ConfigurationBuilder()
@@ -37,8 +38,8 @@ namespace Heimdall.Overseer
             containerBuilder.RegisterConsumers(Assembly.GetExecutingAssembly());
 
 
-            Configurator = new TransportConfigurator(containerBuilder, config)
-                .WithAgent<RabbitMqConfigurationAgent>();
+            Configurator = agents.Aggregate(new TransportConfigurator(containerBuilder, config),
+                (c, a) => c.WithAgent(a));
         }
 
 
