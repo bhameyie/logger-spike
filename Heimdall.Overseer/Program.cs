@@ -1,4 +1,8 @@
 ﻿using System;
+using Autofac;
+using Autofac.Core;
+using Heimdall.DataAccess.MongoDb;
+using Heimdall.DataAccess.MongoDb.Entities;
 using Heimdall.ServiceHosting;
 using Heimdall.Transport.Interfaces;
 using Heimdall.Transport.RabbitMQ;
@@ -8,7 +12,7 @@ namespace Heimdall.Overseer
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
             Console.WriteLine("Sighting Overseer");
 
@@ -21,14 +25,18 @@ namespace Heimdall.Overseer
 
             app.OnExecute(() =>
             {
-                IConfigurationAgent[] agents = {new RabbitMqConfigurationAgent()};
-                using (var initiator = new ServiceInitiator(agents))
+                var mqAgent = new RabbitMqConfigurationAgent()
+                    .WithConsumer<SightingInvestigator<ReportedSighting>>();
+
+
+                using (new ServiceInitiator(new IConfigurationAgent[] {mqAgent},new IModule[]{new MongoModule()}))
                 {
-                    initiator.Init();
                     Console.WriteLine("Overseer Started");
                     return Console.Read();
                 }
             });
+
+            return app.Execute(args);
         }
     }
 }
