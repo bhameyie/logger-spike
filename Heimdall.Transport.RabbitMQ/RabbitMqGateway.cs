@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Heimdal.Transport.Interfaces;
+using Heimdall.Transport.Interfaces;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Autofac;
-using Heimdal.Transport;
-using Heimdal.Transport.Interfaces;
+using Heimdall.Transport.Interfaces;
 using MassTransit;
 using MassTransit.RabbitMqTransport;
 
@@ -71,9 +70,14 @@ namespace Heimdall.Transport.RabbitMQ
             return this;
         }
 
-        public void Release(IConfiguredTransport transport)
+        public void OnRelease(IConfiguredTransport transport)
         {
             transport.BuiltContainer.Resolve<IBusControl>().Stop();
+        }
+
+        public void OnStart(IConfiguredTransport transport)
+        {
+            transport.BuiltContainer.Resolve<IBusControl>().Start();
         }
     }
 }

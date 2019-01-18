@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Autofac;
-using System;
-using Heimdal.Transport.Interfaces;
+using Heimdall.Transport.Interfaces;
 using Microsoft.Extensions.Configuration;
 
-namespace Heimdal.Transport
+namespace Heimdall.Transport
 {
     /// <summary>
     /// Configures any Heimdall supported transports
@@ -59,18 +59,27 @@ namespace Heimdal.Transport
             public IContainer BuiltContainer { get; }
             public IHeimdallGateway Gateway { get; }
 
+
             public ConfiguredTransport(IContainer container, IEnumerable<IConfigurationAgent> agents)
             {
                 BuiltContainer = container;
                 Gateway = container.Resolve<IHeimdallGateway>();
                 _agents = agents;
             }
-
+            
+            public void Start()
+            {
+                foreach (var configurationAgent in _agents)
+                {
+                    configurationAgent.OnStart(this);
+                }
+            }
+            
             public void Dispose()
             {
                 foreach (var configurationAgent in _agents)
                 {
-                    configurationAgent.Release(this);
+                    configurationAgent.OnRelease(this);
                 }
             }
         }

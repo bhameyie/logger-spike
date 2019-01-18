@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Heimdal.Transport.Interfaces;
+using Heimdall.Transport.Interfaces;
 
 namespace Heimdall.Transport.RabbitMQ
 {

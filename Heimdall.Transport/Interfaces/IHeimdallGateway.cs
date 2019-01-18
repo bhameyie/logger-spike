@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Heimdal.Transport.Interfaces
+namespace Heimdall.Transport.Interfaces
 {
     public interface IHeimdallGateway
     {

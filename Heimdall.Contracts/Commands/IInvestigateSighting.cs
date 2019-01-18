@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Heimdal.Transport.Interfaces;
+using Heimdall.Transport.Interfaces;
 
 namespace Heimdall.Contracts.Commands
 {

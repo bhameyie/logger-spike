@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Heimdal.Transport
+namespace Heimdall.Transport
 {
     public class GatewayException : Exception
     {

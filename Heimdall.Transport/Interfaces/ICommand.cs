@@ -1,4 +1,4 @@
-﻿namespace Heimdal.Transport.Interfaces
+﻿namespace Heimdall.Transport.Interfaces
 {
     /// <summary>
     /// Request message to processed by an Actor

@@ -1,4 +1,4 @@
-﻿using Heimdal.Transport.Interfaces;
+﻿using Heimdall.Transport.Interfaces;
 
 namespace Heimdall.Contracts.Events
 {

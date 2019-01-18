@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Heimdal.Transport.Interfaces
+namespace Heimdall.Transport.Interfaces
 {
     /// <summary>
     /// Represents any message to be used in the system

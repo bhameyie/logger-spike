@@ -1,5 +1,5 @@
 ﻿using System;
-using Heimdal.Transport.Interfaces;
+using Heimdall.Transport.Interfaces;
 
 namespace Heimdall.Transport.RabbitMQ
 {

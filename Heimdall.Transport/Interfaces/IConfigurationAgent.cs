@@ -1,8 +1,9 @@
-﻿namespace Heimdal.Transport.Interfaces
+﻿namespace Heimdall.Transport.Interfaces
 {
     public interface IConfigurationAgent
     {
         void Configure(TransportConfigurator configurator);
-        void Release(IConfiguredTransport transport);
+        void OnRelease(IConfiguredTransport transport);
+        void OnStart(IConfiguredTransport transport);
     }
 }

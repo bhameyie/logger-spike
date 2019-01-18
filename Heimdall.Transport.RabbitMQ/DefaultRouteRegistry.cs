@@ -1,6 +1,5 @@
 ﻿using System;
-using Heimdal.Transport;
-using Heimdal.Transport.Interfaces;
+using Heimdall.Transport.Interfaces;
 using log4net;
 using Microsoft.Extensions.Configuration;
 

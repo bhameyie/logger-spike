@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Heimdal.Transport;
 using log4net;
 using MassTransit;
 using Microsoft.Extensions.Hosting;

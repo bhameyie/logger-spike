@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Heimdal.Transport.Interfaces;
 using Heimdall.Ingress.Models;
+using Heimdall.Transport.Interfaces;
 using MassTransit;
 
 namespace Heimdall.Ingress.Services

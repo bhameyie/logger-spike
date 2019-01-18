@@ -20,8 +20,9 @@ namespace Heimdall.Overseer
 
             app.OnExecute(() =>
             {
-                using (new ServiceInitiator())
+                using (var initiator=new ServiceInitiator())
                 {
+                    initiator.Init();
                     Console.WriteLine("Overseer Started");
                     return Console.Read();
                 }
