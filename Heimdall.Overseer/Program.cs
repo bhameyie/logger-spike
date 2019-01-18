@@ -28,9 +28,10 @@ namespace Heimdall.Overseer
                 var mqAgent = new RabbitMqConfigurationAgent()
                     .WithConsumer<SightingInvestigationConsumer<ReportedSighting>>();
 
+                var agents = new IConfigurationAgent[] {mqAgent};
+                var modules = new IModule[] {new MongoModule(), new OverSeerModule()};
 
-                using (new ServiceInitiator(new IConfigurationAgent[] {mqAgent},
-                    new IModule[] {new MongoModule(), new OverSeerModule()}))
+                using (new ServiceInitiator(agents, modules))
                 {
                     Console.WriteLine("Overseer Started");
                     return Console.Read();
