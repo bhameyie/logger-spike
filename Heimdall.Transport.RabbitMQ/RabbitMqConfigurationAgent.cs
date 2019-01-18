@@ -11,7 +11,7 @@ namespace Heimdall.Transport.RabbitMQ
     public class RabbitMqConfigurationAgent : IConfigurationAgent
     {
         private IRouteRegistry _routeRegistry;
-        private readonly List< Action<IRabbitMqReceiveEndpointConfigurator,IComponentContext> > _consumers;
+        private readonly List<Action<IRabbitMqReceiveEndpointConfigurator, IComponentContext>> _consumers;
 
         public RabbitMqConfigurationAgent()
         {
@@ -23,8 +23,6 @@ namespace Heimdall.Transport.RabbitMQ
             _routeRegistry = routeRegistry;
             return this;
         }
-        
-       // public RabbitMqConfigurationAgent With
 
         public void Configure(TransportConfigurator configurator)
         {
@@ -32,7 +30,7 @@ namespace Heimdall.Transport.RabbitMQ
                 {
                     return Bus.Factory.CreateUsingRabbitMq(sbc =>
                         {
-                          var host=  sbc.Host(configurator.Configuration["RabbitMQ:Host"],
+                            var host = sbc.Host(configurator.Configuration["RabbitMQ:Host"],
                                 configurator.Configuration["RabbitMQ:VHost"], h =>
                                 {
                                     h.Username(configurator.Configuration["RabbitMQ:User"]);
@@ -42,10 +40,7 @@ namespace Heimdall.Transport.RabbitMQ
                             if (_consumers.Any())
                             {
                                 sbc.ReceiveEndpoint(host, configurator.Configuration["Heimdall:ServiceQ"],
-                                    receiveConf =>
-                                    {
-                                        _consumers.ForEach(act=>act(receiveConf,container));
-                                    });
+                                    receiveConf => { _consumers.ForEach(act => act(receiveConf, container)); });
                             }
                         }
                     );
@@ -59,9 +54,9 @@ namespace Heimdall.Transport.RabbitMQ
             configurator.Container.RegisterModule(new RabbitModule(_routeRegistry));
         }
 
-        public RabbitMqConfigurationAgent WithConsumer<T>() where T:IConsumer
+        public RabbitMqConfigurationAgent WithConsumer<T>() where T : IConsumer
         {
-            Action<IRabbitMqReceiveEndpointConfigurator,IComponentContext> a = (receiveConf, container) =>
+            Action<IRabbitMqReceiveEndpointConfigurator, IComponentContext> a = (receiveConf, container) =>
             {
                 receiveConf.Consumer(typeof(T), container.Resolve);
             };

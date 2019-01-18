@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Heimdall.DataAccess\Heimdall.DataAccess.csproj" />
+    <ProjectReference Include="..\Heimdall.Overseer\Heimdall.Overseer.csproj" />
     <ProjectReference Include="..\Heimdall.Transport\Heimdall.Transport.csproj" />
     <ProjectReference Include="..\Heimdall.Contracts\Heimdall.Contracts.csproj" />
     <ProjectReference Include="..\Heimdall.Ingress.Rest\Heimdall.Ingress.csproj" />

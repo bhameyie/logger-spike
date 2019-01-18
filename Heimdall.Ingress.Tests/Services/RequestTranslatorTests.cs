@@ -22,39 +22,7 @@ namespace Heimdall.Ingress.Tests.Services
             _guid = Guid.NewGuid();
         }
 
-        [Test]
-        public void Should_Translate_PartiallyFilled_Request_ToCommand()
-        {
-            var req = _fixture.Create<SightingRequest>();
-            req.SupplementalData = new Dictionary<string, object>();
-            req.IncludedTrace = null;
-            req.ReportedCause = null;
 
-            var now = DateTime.UtcNow;
-            var command = _sut.TranslateToInvestigationCommand(req,_guid );
-            command.Summary.Should().Be(req.Summary);
-            command.Origin.Should().Be(req.Origin);
-            command.ReportedCorellationId.Should().Be(req.CorellationId);
-            command.CorrelationId.Should().NotBe(Guid.Empty);
-            (command.Timestamp - now).Should().BeLessThan(TimeSpan.FromSeconds(5));
-        }
-
-        [Test]
-        public void Should_Translate_Full_Request_ToCommand()
-        {
-            var req = _fixture.Create<SightingRequest>();
-
-            var now = DateTime.UtcNow;
-            var command = _sut.TranslateToInvestigationCommand(req, _guid);
-            command.Summary.Should().Be(req.Summary);
-            command.Origin.Should().Be(req.Origin);
-            command.ReportedCorellationId.Should().Be(req.CorellationId);
-            command.CorrelationId.Should().NotBe(Guid.Empty);
-            command.IncludedTrace.Should().Be(req.IncludedTrace);
-            command.ReportedCause.Should().Be(req.ReportedCause);
-            command.SupplementalData.Should().BeEquivalentTo(req.SupplementalData);
-            (command.Timestamp - now).Should().BeLessThan(TimeSpan.FromSeconds(5));
-        }
 
 
         [Test]
@@ -68,8 +36,8 @@ namespace Heimdall.Ingress.Tests.Services
             var now = DateTime.UtcNow;
             var command = _sut.TranslateToNewSightingEvent(req, _guid);
             command.Summary.Should().Be(req.Summary);
-            command.ReportedCorellationId.Should().Be(req.CorellationId);
-            command.CorrelationId.Should().NotBe(Guid.Empty);
+            command.ReportedCorrelationId.Should().Be(req.CorellationId);
+            command.CorrelationId.Should().Be(_guid);
             (command.Timestamp - now).Should().BeLessThan(TimeSpan.FromSeconds(5));
         }
 
@@ -81,8 +49,8 @@ namespace Heimdall.Ingress.Tests.Services
             var now = DateTime.UtcNow;
             var command = _sut.TranslateToNewSightingEvent(req, _guid);
             command.Summary.Should().Be(req.Summary);
-            command.ReportedCorellationId.Should().Be(req.CorellationId);
-            command.CorrelationId.Should().NotBe(Guid.Empty);
+            command.ReportedCorrelationId.Should().Be(req.CorellationId);
+            command.CorrelationId.Should().Be(_guid);
             (command.Timestamp - now).Should().BeLessThan(TimeSpan.FromSeconds(5));
         }
     }

@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.DataAccess.MongoDb", "Heimdall.DataAccess.MongoDb\Heimdall.DataAccess.MongoDb.csproj", "{C1EFB3C2-77D9-4140-9F60-C43A7661A6E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.Overseer.Tests", "Heimdall.Overseer.Tests\Heimdall.Overseer.Tests.csproj", "{972CAD70-3367-4D93-AB46-C4896E69067E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{C1EFB3C2-77D9-4140-9F60-C43A7661A6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1EFB3C2-77D9-4140-9F60-C43A7661A6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1EFB3C2-77D9-4140-9F60-C43A7661A6E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972CAD70-3367-4D93-AB46-C4896E69067E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972CAD70-3367-4D93-AB46-C4896E69067E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972CAD70-3367-4D93-AB46-C4896E69067E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972CAD70-3367-4D93-AB46-C4896E69067E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{3DA5862F-AAB5-4E6A-A3BA-F1C292CE7EE5} = {04BE8B95-7F45-4680-8077-573C96D26D62}
 		{BFC640EE-7B30-43CD-AEDF-567DA55650ED} = {4129F2CB-D604-43FE-9167-EAC677FC0B49}
 		{C1EFB3C2-77D9-4140-9F60-C43A7661A6E0} = {4129F2CB-D604-43FE-9167-EAC677FC0B49}
+		{972CAD70-3367-4D93-AB46-C4896E69067E} = {D2159FBF-8ED8-4D56-9DD4-01586DAF8302}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE8EAF05-F028-48F5-A846-3A4D23C1DBD5}
