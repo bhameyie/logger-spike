@@ -8,10 +8,10 @@ namespace Heimdall.Overseer
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<SightingAnalyzerRepertoire>()
-                .As<ISightingAnalyzerRepertoire>().InstancePerLifetimeScope();
+                .As<ISightingAnalyzerRepertoire>().SingleInstance();
 
-            builder.RegisterType<CommandCreator>()
-                .As<ICommandCreator>().InstancePerLifetimeScope();
+            builder.RegisterType<ProtocolTranslator>()
+                .As<IProtocolTranslator>().InstancePerLifetimeScope();
         }
     }
 }

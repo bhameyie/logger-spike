@@ -19,7 +19,7 @@ namespace Heimdall.ServiceHosting
     /// <remarks>It's IDisposable to ensure resources gets released even in case of an exception. For that to work, it *must* be used in a using statement</remarks>
     public class ServiceInitiator : IDisposable
     {
-        private IConfiguredTransport _configuredTransport;
+        private readonly IConfiguredTransport _configuredTransport;
         private readonly ILog _logger;
 
 
@@ -40,7 +40,6 @@ namespace Heimdall.ServiceHosting
             {
                 containerBuilder.RegisterModule(module);
             }
-
 
             var configurator = agents.Aggregate(new TransportConfigurator(containerBuilder, config),
                 (c, a) => c.WithAgent(a));

@@ -7,6 +7,7 @@ using NUnit.Framework;
 
 namespace Heimdall.Ingress.Tests.Services
 {
+    [TestFixture]
     public class RequestValidatorTests
     {
         private RequestValidator _sut;

@@ -2,13 +2,13 @@ using System;
 using Heimdall.Contracts;
 using Heimdall.Contracts.Commands;
 using Heimdall.Contracts.Events;
+using Heimdall.DataAccess.Entities;
 
 namespace Heimdall.Overseer
 {
-    public class CommandCreator : ICommandCreator
+    public class ProtocolTranslator : IProtocolTranslator
     {
-        
-        public InvestigateSighting Create(NewSightingReported request,
+       public InvestigateSighting Translate(NewSightingReported request,
             IAnalysisResults[] suspiciousResults)
         {
             return new InvestigateSighting
@@ -23,5 +23,11 @@ namespace Heimdall.Overseer
                 IncludedTrace = request.IncludedTrace,
                 SuspiciousResults=suspiciousResults
             };
-        }    }
+        }
+
+        public T TranslateToRecord<T>(NewSightingReported request, IAnalysisResults[] allResults) where T : IReportedSighting, new()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

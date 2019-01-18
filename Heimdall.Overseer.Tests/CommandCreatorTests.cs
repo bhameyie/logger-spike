@@ -9,16 +9,17 @@ using NUnit.Framework;
 
 namespace Heimdall.Overseer.Tests
 {
-    public class CommandCreatorTests
+    [TestFixture]
+    public class ProtocolTranslatorTests
     {
         private Fixture _fixture;
-        private CommandCreator _sut;
+        private ProtocolTranslator _sut;
 
         [SetUp]
         public void Init()
         {
             _fixture = new Fixture();
-            _sut = new CommandCreator();
+            _sut = new ProtocolTranslator();
         }
 
         [Test]
@@ -30,7 +31,7 @@ namespace Heimdall.Overseer.Tests
             req.ReportedCause = null;
 
             var now = DateTime.UtcNow;
-            var command = _sut.Create(req, new IAnalysisResults[0]);
+            var command = _sut.Translate(req, new IAnalysisResults[0]);
             command.Summary.Should().Be(req.Summary);
             command.Origin.Should().Be(req.Origin);
             command.ReportedCorrelationId.Should().Be(req.ReportedCorrelationId);
@@ -45,7 +46,7 @@ namespace Heimdall.Overseer.Tests
             var req = _fixture.Create<NewSightingReported>();
 
             var now = DateTime.UtcNow;
-            var command = _sut.Create(req, someRes.ToArray());
+            var command = _sut.Translate(req, someRes.ToArray());
             command.Summary.Should().Be(req.Summary);
             command.Origin.Should().Be(req.Origin);
             command.ReportedCorrelationId.Should().Be(req.ReportedCorrelationId);

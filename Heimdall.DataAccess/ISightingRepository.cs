@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
-using Heimdall.DataAccess.Entities;
+﻿using Heimdall.DataAccess.Entities;
 
 namespace Heimdall.DataAccess
 {
-    public interface ISightingRepository<T> where T:IReportedSighting
+    /// <summary>
+    /// Full fledged sIghting repository
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface ISightingRepository<T>:IReadonlySightingRepository<T> where T:IReportedSighting
     {
         T Add(T sighting) ;
-        IEnumerable<T> FindByReportedCorrelationId(string reportedCorrelationId);
     }
 }

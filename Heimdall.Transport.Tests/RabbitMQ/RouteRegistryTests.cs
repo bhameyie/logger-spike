@@ -11,6 +11,7 @@ using NUnit.Framework;
 
 namespace Heimdall.Transport.Tests.RabbitMQ
 {
+    [TestFixture]
     public class RouteRegistryTests
     {
         private DefaultRouteRegistry _sut;

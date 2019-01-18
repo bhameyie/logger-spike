@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Heimdall.DataAccess.Entities;
 using Heimdall.DataAccess.MongoDb.Entities;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;

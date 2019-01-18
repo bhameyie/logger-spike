@@ -1,7 +1,6 @@
 ﻿using System;
-using Heimdall.Transport.Interfaces;
 
-namespace Heimdall.Transport.RabbitMQ
+namespace Heimdall.Transport.Interfaces
 {
     /// <summary>
     /// Determines where to route messages

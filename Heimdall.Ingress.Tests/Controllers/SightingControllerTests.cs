@@ -11,6 +11,7 @@ using NUnit.Framework;
 
 namespace Heimdall.Ingress.Tests.Controllers
 {
+    [TestFixture]
     public class SightingControllerTests
     {
         private SightingController _sut;

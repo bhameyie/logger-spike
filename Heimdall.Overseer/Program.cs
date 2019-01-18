@@ -1,6 +1,7 @@
 ﻿using System;
 using Autofac;
 using Autofac.Core;
+using Heimdall.DataAccess;
 using Heimdall.DataAccess.MongoDb;
 using Heimdall.DataAccess.MongoDb.Entities;
 using Heimdall.ServiceHosting;

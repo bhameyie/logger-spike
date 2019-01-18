@@ -43,6 +43,7 @@ namespace Heimdall.Transport
         /// <returns></returns>
         public IConfiguredTransport Configure()
         {
+            //todo: Include default agents instead, such as one for configuring retries and retry queues
             if (!_agents.Any())
             {
                 throw new ApplicationException("No Configuration Agent specified");

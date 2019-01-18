@@ -8,6 +8,7 @@ using NUnit.Framework;
 
 namespace Heimdall.Ingress.Tests.Services
 {
+    [TestFixture]
     public class RequestTranslatorTests
     {
         private RequestTranslator _sut;
