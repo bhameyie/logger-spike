@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Runtime.Loader;
+using Heimdall.ServiceHosting;
 using Heimdall.Transport.Interfaces;
 using Heimdall.Transport.RabbitMQ;
-using log4net.Core;
 using Microsoft.Extensions.CommandLineUtils;
 
 namespace Heimdall.Overseer

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Autofac;
 using Heimdall.Transport;
 using Heimdall.Transport.Interfaces;
 using log4net;
-using System.Linq;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 
-namespace Heimdall.Overseer
+namespace Heimdall.ServiceHosting
 {
     /// <summary>
     /// Assists in easily configuring a Service
