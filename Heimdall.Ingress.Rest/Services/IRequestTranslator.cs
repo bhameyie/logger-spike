@@ -7,7 +7,6 @@ namespace Heimdall.Ingress.Services
 {
     public interface IRequestTranslator
     {
-        IInvestigateSighting TranslateToInvestigationCommand(SightingRequest request, Guid correlationId);
         NewSightingReported TranslateToNewSightingEvent(SightingRequest request, Guid correlationId);
     }
 }

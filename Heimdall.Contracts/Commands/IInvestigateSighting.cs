@@ -14,5 +14,6 @@ namespace Heimdall.Contracts.Commands
         string ReportedCause { get; }
         string IncludedTrace { get; }
         Dictionary<string, object> SupplementalData { get; }
+        IEnumerable<IAnalysisResults> SuspiciousResults { get; }
     }
 }

@@ -7,6 +7,6 @@ namespace Heimdall.Contracts
     /// </summary>
     public interface IUserCorrelated:IMessage
     {
-        string ReportedCorellationId { get; }
+        string ReportedCorrelationId { get; }
     }
 }
