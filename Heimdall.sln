@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Contracts", "Heimd
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Ingress.Tests", "Heimdall.Ingress.Tests\Heimdall.Ingress.Tests.csproj", "{7FEAAE06-AD2A-4B2A-9FF5-53CE3685EA1E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdal.Transport", "Heimdal.Transport\Heimdal.Transport.csproj", "{1D7AFCBF-2874-45E7-AEA3-498C319B75CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Transport", "Heimdall.Transport\Heimdall.Transport.csproj", "{1D7AFCBF-2874-45E7-AEA3-498C319B75CD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Transport.RabbitMQ", "Heimdall.Transport.RabbitMQ\Heimdall.Transport.RabbitMQ.csproj", "{2FE9402D-BD73-4870-A659-5837D1015659}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D2159FBF-8ED8-4D56-9DD4-01586DAF8302}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heimdall.Transport.Tests", "Heimdall.Transport.Tests\Heimdall.Transport.Tests.csproj", "{8067F813-6469-4146-AC73-95881F27536B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heimdall.ServiceHosting", "Heimdall.ServiceHosting\Heimdall.ServiceHosting.csproj", "{3DA5862F-AAB5-4E6A-A3BA-F1C292CE7EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{8067F813-6469-4146-AC73-95881F27536B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8067F813-6469-4146-AC73-95881F27536B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8067F813-6469-4146-AC73-95881F27536B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA5862F-AAB5-4E6A-A3BA-F1C292CE7EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA5862F-AAB5-4E6A-A3BA-F1C292CE7EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA5862F-AAB5-4E6A-A3BA-F1C292CE7EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA5862F-AAB5-4E6A-A3BA-F1C292CE7EE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{1D7AFCBF-2874-45E7-AEA3-498C319B75CD} = {04BE8B95-7F45-4680-8077-573C96D26D62}
 		{2FE9402D-BD73-4870-A659-5837D1015659} = {04BE8B95-7F45-4680-8077-573C96D26D62}
 		{8067F813-6469-4146-AC73-95881F27536B} = {D2159FBF-8ED8-4D56-9DD4-01586DAF8302}
+		{3DA5862F-AAB5-4E6A-A3BA-F1C292CE7EE5} = {FD711266-606F-40E4-8E1C-5F0B2AB47F73}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE8EAF05-F028-48F5-A846-3A4D23C1DBD5}

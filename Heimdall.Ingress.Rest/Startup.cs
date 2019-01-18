@@ -15,14 +15,13 @@ namespace Heimdall.Ingress
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+        
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -32,7 +31,7 @@ namespace Heimdall.Ingress
             builder.Populate(services);
             builder.RegisterModule<AutofacModule>();
 
-            var configuredTransport = new TransportConfigurator(builder, Configuration)
+            var configuredTransport = new TransportConfigurator(builder, _configuration)
                 .WithAgent<RabbitMqConfigurationAgent>()
                 .Configure();
 

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Heimdal.Transport\Heimdal.Transport.csproj" />
+    <ProjectReference Include="..\Heimdall.Transport\Heimdall.Transport.csproj" />
   </ItemGroup>
 
 

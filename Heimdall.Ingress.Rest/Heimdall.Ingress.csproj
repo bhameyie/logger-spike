@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Heimdal.Transport\Heimdal.Transport.csproj" />
+    <ProjectReference Include="..\Heimdall.Transport\Heimdall.Transport.csproj" />
     <ProjectReference Include="..\Heimdall.Contracts\Heimdall.Contracts.csproj" />
     <ProjectReference Include="..\Heimdall.Transport.RabbitMQ\Heimdall.Transport.RabbitMQ.csproj" />
   </ItemGroup>

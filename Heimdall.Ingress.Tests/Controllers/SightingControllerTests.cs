@@ -2,7 +2,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoFixture;
 using FluentAssertions;
-using Heimdall.Contracts.Commands;
 using Heimdall.Ingress.Controllers;
 using Heimdall.Ingress.Models;
 using Heimdall.Ingress.Services;

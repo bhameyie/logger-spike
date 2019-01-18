@@ -1,6 +1,7 @@
 ﻿using System;
-using System.IO;
-using Microsoft.Extensions.Configuration;
+using System.Runtime.Loader;
+using log4net.Core;
+using Microsoft.Extensions.CommandLineUtils;
 
 namespace Heimdall.Overseer
 {
@@ -8,13 +9,23 @@ namespace Heimdall.Overseer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Sighting Overseer");
 
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile("appsettings.{env.EnvironmentName}.json")
-                .Build();
+            var app = new CommandLineApplication
+            {
+                Name = "Overseer",
+                FullName = "Heimdall Sighting Overseer",
+                Description = "A Reactive Endpoint user to monitor sightings and trigger investigations"
+            };
+
+            app.OnExecute(() =>
+            {
+                using (new ServiceInitiator())
+                {
+                    Console.WriteLine("Overseer Started");
+                    return Console.Read();
+                }
+            });
         }
     }
 }
